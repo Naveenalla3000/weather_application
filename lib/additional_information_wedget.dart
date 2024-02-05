@@ -1,37 +1,44 @@
 import 'package:flutter/material.dart';
 
 class AdditionalInformationWeget extends StatelessWidget {
-  const AdditionalInformationWeget({super.key});
+  final IconData icon;
+  final String label;
+  final String value;
+  const AdditionalInformationWeget({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 125,
       padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
       ),
-      child: const Column(
+      child: Column(
         children: <Widget>[
+          Icon(
+            icon,
+            size: 32,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
           Text(
-            "04:00",
-            style: TextStyle(
+            label,
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
-            height: 8,
-          ),
-          Icon(
-            Icons.water_drop,
-            size: 32,
-          ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Text(
-            "320.12",
+            value,
           ),
         ],
       ),
